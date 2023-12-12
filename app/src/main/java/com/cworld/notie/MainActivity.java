@@ -84,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/cworld1/notie"));
                 startActivity(intent);
             } else if (item.getItemId() == R.id.about_item) {
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, AboutActivity.class);
+                    startActivity(intent);
             } else return false;
             return true;
         });
