@@ -40,5 +40,14 @@
 
         </androidx.core.widget.NestedScrollView>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingCreateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/fab_create_desc"
+            app:srcCompat="@drawable/outline_edit_24"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

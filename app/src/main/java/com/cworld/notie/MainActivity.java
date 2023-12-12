@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         DynamicColors.applyToActivitiesIfAvailable(getApplication());
 
         initTopAppBar(findViewById(R.id.topAppBar));
+
+        findViewById(R.id.floatingCreateButton).setOnClickListener(v -> {
+        });
+
         List<Object> noteList = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             NoteModel note = new NoteModel("Note No." + i, "A note of No. " + i);
