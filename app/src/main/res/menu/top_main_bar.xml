@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_sort"
+        android:icon="@drawable/baseline_sort_24"
+        android:title="@string/title_sort"
+        android:contentDescription="@string/content_description_sort"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/item_select"
+        android:icon="@drawable/outline_check_circle_24"
+        android:title="@string/title_select"
+        android:contentDescription="@string/content_description_select"
+        app:showAsAction="ifRoom" />
+
+</menu>

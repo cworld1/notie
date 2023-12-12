@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Notie</string>
+    <!--top app bar-->
+    <string name="app_bar_name">@string/app_name</string>
+    <string name="title_select">Select</string>
+    <string name="content_description_select">Select notes</string>
+    <string name="title_sort">Sort</string>
+    <string name="content_description_sort">Sort Item</string>
 
 </resources>
