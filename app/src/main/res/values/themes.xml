@@ -6,4 +6,15 @@
     </style>
 
     <style name="Theme.Notie" parent="Base.Theme.Notie" />
+
+    <style name="aboutButtonStyle" parent="@style/Widget.Material3.Button.TonalButton.Icon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
 </resources>

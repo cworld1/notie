@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Notie</string>
-    <!--top app bar-->
+    <string name="test">In construction...</string>
+    <!--main view-->
     <string name="app_bar_name">@string/app_name</string>
     <string name="title_select">Select</string>
     <string name="content_description_select">Select notes</string>
     <string name="title_sort">Sort</string>
     <string name="content_description_sort">Sort Item</string>
-    <!--fab-->
     <string name="fab_create_desc">Create Notes</string>
     <!--navigation drawer-->
     <string name="header_title">@string/app_name</string>
@@ -15,9 +15,21 @@
     <string name="all_note_title">All Note</string>
     <string name="deleted_title">Deleted</string>
     <string name="app_subheader_title">Application</string>
-    <string name="about_title">About App</string>
+    <string name="about_title">About</string>
     <string name="website_title">Website of Repo</string>
     <string name="update_title">Check for Update</string>
     <string name="settings_title">Settings</string>
+    <!-- about -->
+    <string name="about_bar_name">@string/about_title</string>
+    <string name="description_app_icon">App Icon</string>
+    <string name="version_format">Version %s</string>
+    <string name="about_app">About App</string>
+    <string name="github_button_text">Github</string>
+    <string name="email_button_text">Email</string>
+    <string name="alipay_button_text">Alipay</string>
+    <string name="about_donate">Donate for Author</string>
+    <string name="wechat_button_text">Wechat</string>
+    <string name="author_cworld_button_text">CWorld</string>
+    <string name="about_contributors">Contributors</string>
 
 </resources>
