@@ -4,6 +4,7 @@ import com.cworld.notie.adapter.NoteItemAdapter;
 import com.cworld.notie.adapter.NoteModel;
 import com.cworld.notie.util.Hitokoto;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.color.DynamicColors;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -25,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DynamicColors.applyToActivitiesIfAvailable(getApplication());
+
         initTopAppBar(findViewById(R.id.topAppBar));
         List<Object> noteList = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
