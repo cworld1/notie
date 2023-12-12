@@ -16,6 +16,7 @@ import com.google.android.material.color.DynamicColors;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initTopAppBar(MaterialToolbar topAppBar) {
+        // set click listener
+        topAppBar.setNavigationOnClickListener(v -> {
+            DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+            drawerLayout.open();
+        });
 
         // Add poem to title bar
         Executors.newSingleThreadExecutor().execute(() -> {

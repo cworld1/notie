@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_item"
+        android:title="@string/folder_subheader_title">
+        <menu>
+            <item
+                android:id="@+id/all_item"
+                android:icon="@drawable/outline_note_alt_24"
+                android:title="@string/all_note_title"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/deleted_item"
+                android:icon="@drawable/outline_delete_24"
+                android:title="@string/deleted_title"
+                android:checkable="true"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/app_item"
+        android:title="@string/app_subheader_title">
+        <menu>
+            <item
+                android:id="@+id/website_item"
+                android:icon="@drawable/outline_web_24"
+                android:title="@string/website_title" />
+            <item
+                android:id="@+id/update_item"
+                android:icon="@drawable/outline_update_24"
+                android:title="@string/update_title" />
+            <item
+                android:id="@+id/settings_item"
+                android:icon="@drawable/outline_settings_24"
+                android:title="@string/settings_title" />
+            <item
+                android:id="@+id/about_item"
+                android:icon="@drawable/outline_info_24"
+                android:title="@string/about_title" />
+        </menu>
+    </item>
+</menu>

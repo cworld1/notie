@@ -6,5 +6,18 @@
     <string name="content_description_select">Select notes</string>
     <string name="title_sort">Sort</string>
     <string name="content_description_sort">Sort Item</string>
+    <!--fab-->
+    <string name="fab_create_desc">Create Notes</string>
+    <!--navigation drawer-->
+    <string name="header_title">@string/app_name</string>
+    <string name="header_text">Made with Love</string>
+    <string name="folder_subheader_title">Folder</string>
+    <string name="all_note_title">All Note</string>
+    <string name="deleted_title">Deleted</string>
+    <string name="app_subheader_title">Application</string>
+    <string name="about_title">About App</string>
+    <string name="website_title">Website of Repo</string>
+    <string name="update_title">Check for Update</string>
+    <string name="settings_title">Settings</string>
 
 </resources>
