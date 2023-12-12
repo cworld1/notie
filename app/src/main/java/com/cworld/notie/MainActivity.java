@@ -7,6 +7,8 @@ import com.cworld.notie.util.Hitokoto;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         DynamicColors.applyToActivitiesIfAvailable(getApplication());
 
         initTopAppBar(findViewById(R.id.topAppBar));
+        initAppDrawer(findViewById(R.id.navigationDrawerView));
 
         findViewById(R.id.floatingCreateButton).setOnClickListener(v -> {
         });
@@ -72,6 +75,17 @@ public class MainActivity extends AppCompatActivity {
                     ).show();
                 }
             });
+        });
+    }
+
+    private void initAppDrawer(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.website_item) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/cworld1/notie"));
+                startActivity(intent);
+            } else if (item.getItemId() == R.id.about_item) {
+            } else return false;
+            return true;
         });
     }
 
