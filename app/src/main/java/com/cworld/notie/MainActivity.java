@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
         initAppDrawer(findViewById(R.id.navigationDrawerView));
 
         findViewById(R.id.floatingCreateButton).setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, EditActivity.class);
+            startActivity(intent);
         });
 
         List<Object> noteList = new ArrayList<>();

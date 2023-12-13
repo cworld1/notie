@@ -19,6 +19,8 @@
     <string name="website_title">Website of Repo</string>
     <string name="update_title">Check for Update</string>
     <string name="settings_title">Settings</string>
+    <!--edit-->
+    <string name="edit_bar_name">New Draft</string>
     <!-- about -->
     <string name="about_bar_name">@string/about_title</string>
     <string name="description_app_icon">App Icon</string>
@@ -31,5 +33,7 @@
     <string name="wechat_button_text">Wechat</string>
     <string name="author_cworld_button_text">CWorld</string>
     <string name="about_contributors">Contributors</string>
+    <string name="title_share">Share</string>
+    <string name="title_find">Find in Note</string>
 
 </resources>
