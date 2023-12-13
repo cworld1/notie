@@ -12,7 +12,7 @@
     <string name="header_title">@string/app_name</string>
     <string name="header_text">Made with Love</string>
     <string name="folder_subheader_title">Folder</string>
-    <string name="all_note_title">All Note</string>
+    <string name="all_notes_title">All Notes</string>
     <string name="deleted_title">Deleted</string>
     <string name="app_subheader_title">Application</string>
     <string name="about_title">About</string>

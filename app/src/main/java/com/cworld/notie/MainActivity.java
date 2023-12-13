@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.color.DynamicColors;
@@ -54,39 +55,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initTopAppBar(MaterialToolbar topAppBar) {
+        boolean isTablet = getResources().getConfiguration().smallestScreenWidthDp >= 600;
         // set click listener
-        topAppBar.setNavigationOnClickListener(v -> {
-            DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
-            drawerLayout.open();
-        });
+        if (!isTablet) {
+            topAppBar.setNavigationOnClickListener(v -> {
+                DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+                drawerLayout.open();
+            });
+        }
 
         // Add poem to title bar
         Executors.newSingleThreadExecutor().execute(() -> {
             String result = Hitokoto.fetchPoem();
             Handler handler = new Handler(Looper.getMainLooper());
             handler.post(() -> {
-                if (result != null) {
-                    topAppBar.setSubtitle(result);
-                } else {
+                if (result == null) {
                     Snackbar.make(
                             findViewById(android.R.id.content),
                             "Failed to fetch poem",
                             Snackbar.LENGTH_SHORT
                     ).show();
+                    return;
                 }
+                if (isTablet){
+                    TextView drawerHeaderDesView = findViewById(R.id.drawerHeaderDescription);
+                    drawerHeaderDesView.setText(result);
+                }
+                else topAppBar.setSubtitle(result);
             });
         });
     }
 
     private void initAppDrawer(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.website_item) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/cworld1/notie"));
+            int itemId = item.getItemId();
+            Intent intent;
+            if (itemId == R.id.website_item) {
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/cworld1/notie"));
                 startActivity(intent);
-            } else if (item.getItemId() == R.id.about_item) {
-                    Intent intent = new Intent();
-                    intent.setClass(MainActivity.this, AboutActivity.class);
-                    startActivity(intent);
+            } else if (itemId == R.id.settings_item) {
+                intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            } else if (itemId == R.id.about_item) {
+                intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
             } else return false;
             return true;
         });
