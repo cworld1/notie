@@ -5,6 +5,7 @@ import com.cworld.notie.adapter.NoteModel;
 import com.cworld.notie.util.Hitokoto;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         noteRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void initTopAppBar(MaterialToolbar topAppBar) {
+    private void initTopAppBar(@NonNull MaterialToolbar topAppBar) {
         boolean isTablet = getResources().getConfiguration().smallestScreenWidthDp >= 600;
         // set click listener
         if (!isTablet) {
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initAppDrawer(NavigationView navigationView) {
+    private void initAppDrawer(@NonNull NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
             Intent intent;

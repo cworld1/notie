@@ -1,6 +1,7 @@
 package com.cworld.notie;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.PackageInfo;
@@ -34,10 +35,8 @@ public class AboutActivity extends AppCompatActivity {
         }
     }
 
-    private void initTopAppBar(MaterialToolbar topAppBar) {
+    private void initTopAppBar(@NonNull MaterialToolbar topAppBar) {
         // set click listener
-        topAppBar.setNavigationOnClickListener(v -> {
-            finish();
-        });
+        topAppBar.setNavigationOnClickListener(v -> finish());
     }
 }
