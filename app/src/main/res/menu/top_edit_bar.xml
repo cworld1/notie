@@ -11,9 +11,17 @@
 
     <item
         android:id="@+id/item_find"
-        android:icon="@drawable/outline_check_circle_24"
         android:title="@string/title_find"
-        android:contentDescription="@string/content_description_select"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_info"
+        android:title="@string/title_info"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_delete"
+        android:title="@string/title_delete"
         app:showAsAction="never" />
 
 </menu>

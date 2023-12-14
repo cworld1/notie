@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/actionCommand"
+        android:icon="@drawable/outline_keyboard_command_key_24"
+        android:title="@string/title_command"
+        android:contentDescription="@string/content_description_command"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/textBold"
+        android:icon="@drawable/outline_format_bold_24"
+        android:title="@string/title_bold"
+        android:contentDescription="@string/content_description_bold"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/textItalic"
+        android:icon="@drawable/outline_format_italic_24"
+        android:title="@string/title_italic"
+        android:contentDescription="@string/content_description_italic"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/textStrikethrough"
+        android:icon="@drawable/outline_format_strikethrough_24"
+        android:title="@string/title_strikethrough"
+        android:contentDescription="@string/content_description_strikethrough"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/textQuote"
+        android:icon="@drawable/outline_format_quote_24"
+        android:title="@string/title_quote"
+        android:contentDescription="@string/content_description_quote"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/textList"
+        android:icon="@drawable/outline_format_list_bulleted_24"
+        android:title="@string/title_list"
+        android:contentDescription="@string/content_description_list"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/textNumList"
+        android:icon="@drawable/outline_format_list_numbered_24"
+        android:title="@string/title_num_list"
+        android:contentDescription="@string/content_description_num_list"
+        app:showAsAction="always"/>
+
+</menu>
