@@ -41,16 +41,24 @@ public class MainActivity extends AppCompatActivity {
         initAppDrawer(findViewById(R.id.navigationDrawerView));
 
         findViewById(R.id.floatingCreateButton).setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.setClass(MainActivity.this, EditActivity.class);
+            Intent intent = new Intent(MainActivity.this, EditActivity.class);
             startActivity(intent);
         });
 
-        List<Object> noteList = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            NoteModel note = new NoteModel("Note No." + i, "A note of No. " + i);
-            noteList.add(note);
-        }
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
+        NoteFileHelper noteFileHelper = new NoteFileHelper(getApplicationContext(), "notes");
+        List<NoteModel> noteList = noteFileHelper.getAllNotes();
+
+        // Sort by last edit time
+        noteList.sort((note1, note2) -> {
+            Date time1 = note1.getEditTime();
+            Date time2 = note2.getEditTime();
+            return time2.compareTo(time1);
+        });
+
         // Initialize and set up the RecyclerView
         RecyclerView noteRecyclerView = findViewById(R.id.noteRecyclerView);
         NoteItemAdapter noteAdapter = new NoteItemAdapter(noteList);
@@ -81,11 +89,10 @@ public class MainActivity extends AppCompatActivity {
                     ).show();
                     return;
                 }
-                if (isTablet){
+                if (isTablet) {
                     TextView drawerHeaderDesView = findViewById(R.id.drawerHeaderDescription);
                     drawerHeaderDesView.setText(result);
-                }
-                else topAppBar.setSubtitle(result);
+                } else topAppBar.setSubtitle(result);
             });
         });
     }
