@@ -32,7 +32,7 @@
     <string name="title_info">Note Info</string>
     <!--main view-->
     <string name="text_hint_body">Body</string>
-    <string name="text_hint_header">Head</string>
+    <string name="text_hint_header">Title</string>
     <!--bottom bar-->
     <string name="title_bold">Bold</string>
     <string name="content_description_bold">Insert Bold Text Template</string>
