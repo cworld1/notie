@@ -5,6 +5,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -19,7 +22,8 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
         DynamicColors.applyToActivitiesIfAvailable(getApplication());
 
-        initTopAppBar(findViewById(R.id.topAppBar));
+        MaterialToolbar topAppBar = findViewById(R.id.topAppBar);
+        initTopAppBar(topAppBar);
         initBottomAppBar(findViewById(R.id.bottomAppBar));
 
         String title = null;
@@ -34,6 +38,27 @@ public class EditActivity extends AppCompatActivity {
         EditText contentView = findViewById(R.id.editBody);
         titleView.setText(title);
         contentView.setText(content);
+
+
+        initHeader(findViewById(R.id.editHeader), topAppBar);
+    }
+
+    private void initHeader(@NonNull EditText editText, @NonNull MaterialToolbar topAppBar) {
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String title;
+                if (s.length() == 0)
+                    title = getString(R.string.edit_bar_name);
+                else
+                    title = s.toString();
+                topAppBar.setTitle(title);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
 
     private void initTopAppBar(@NonNull MaterialToolbar topAppBar) {
@@ -44,7 +69,7 @@ public class EditActivity extends AppCompatActivity {
         bottomAppBar.setNavigationOnClickListener(item -> {
             int itemId = item.getId();
             if (itemId == R.id.actionCommand) {
-                
+
             }
         });
     }
