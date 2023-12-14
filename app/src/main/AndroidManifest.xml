@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Notie"
         tools:targetApi="31">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditActivity"
             android:exported="false" />
         <activity
