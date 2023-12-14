@@ -1,11 +1,13 @@
 package com.cworld.notie.adapter;
 
+import java.util.Date;
+
 public class NoteModel {
     private final String title;
     private final String content;
-    private final long editTime;
+    private final Date editTime;
 
-    public NoteModel(String title, String content, long editTime) {
+    public NoteModel(String title, String content, Date editTime) {
         this.title = title;
         this.content = content;
         this.editTime = editTime;
@@ -19,7 +21,7 @@ public class NoteModel {
         return content;
     }
 
-    public long getEditTime() {
+    public Date getEditTime() {
         return editTime;
     }
 }
