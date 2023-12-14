@@ -21,6 +21,19 @@ public class EditActivity extends AppCompatActivity {
 
         initTopAppBar(findViewById(R.id.topAppBar));
         initBottomAppBar(findViewById(R.id.bottomAppBar));
+
+        String title = null;
+        if (getIntent().hasExtra("title")) {
+            title = getIntent().getStringExtra("title");
+        }
+        String content = null;
+        if (getIntent().hasExtra("content")) {
+            content = getIntent().getStringExtra("content");
+        }
+        EditText titleView = findViewById(R.id.editHeader);
+        EditText contentView = findViewById(R.id.editBody);
+        titleView.setText(title);
+        contentView.setText(content);
     }
 
     private void initTopAppBar(@NonNull MaterialToolbar topAppBar) {

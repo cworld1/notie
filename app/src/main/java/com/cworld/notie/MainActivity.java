@@ -3,6 +3,7 @@ package com.cworld.notie;
 import com.cworld.notie.adapter.NoteItemAdapter;
 import com.cworld.notie.adapter.NoteModel;
 import com.cworld.notie.util.Hitokoto;
+import com.cworld.notie.util.NoteFileHelper;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -62,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
         // Initialize and set up the RecyclerView
         RecyclerView noteRecyclerView = findViewById(R.id.noteRecyclerView);
         NoteItemAdapter noteAdapter = new NoteItemAdapter(noteList);
+        noteAdapter.setOnItemClickListener(note -> {
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, EditActivity.class);
+            intent.putExtra("title", note.getTitle());
+            intent.putExtra("content", note.getContent());
+//            intent.putExtra("editTime", note.getEditTime().getTime());
+            startActivity(intent);
+        });
         noteRecyclerView.setAdapter(noteAdapter);
         noteRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

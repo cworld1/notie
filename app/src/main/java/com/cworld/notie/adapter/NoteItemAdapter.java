@@ -22,7 +22,10 @@ public class NoteItemAdapter extends RecyclerView.Adapter<NoteItemAdapter.NoteVi
         this.noteList = noteList;
     }
 
-    @NonNull
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
     @Override
     public NoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_note, parent, false);
@@ -36,6 +39,12 @@ public class NoteItemAdapter extends RecyclerView.Adapter<NoteItemAdapter.NoteVi
         holder.titleTextView.setText(currentNote.getTitle());
         holder.contentTextView.setText(currentNote.getContent());
         holder.editTimeTextView.setText(formattedTime);
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(currentNote);
+            }
+        });
     }
 
     @Override
@@ -54,5 +63,9 @@ public class NoteItemAdapter extends RecyclerView.Adapter<NoteItemAdapter.NoteVi
             contentTextView = itemView.findViewById(R.id.contentTextView);
             editTimeTextView = itemView.findViewById(R.id.editTimeTextView);
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(NoteModel note);
     }
 }
