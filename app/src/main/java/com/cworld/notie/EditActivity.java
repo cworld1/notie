@@ -6,17 +6,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.cworld.notie.adapter.NoteModel;
+import com.cworld.notie.util.NoteFileHelper;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.color.DynamicColors;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Calendar;
+import java.util.Objects;
 
 public class EditActivity extends AppCompatActivity {
     MaterialToolbar topAppBar;
     BottomAppBar bottomAppBar;
     EditText editHeader;
     EditText editBody;
+    MenuItem menuDone;
+    MenuItem menuShare;
     String originTitle;
 
     @Override
@@ -30,12 +40,48 @@ public class EditActivity extends AppCompatActivity {
         bottomAppBar = findViewById(R.id.bottomAppBar);
         editHeader = findViewById(R.id.editHeader);
         editBody = findViewById(R.id.editBody);
+        Menu menu = topAppBar.getMenu();
+        menuDone = menu.findItem(R.id.item_done);
+        menuShare = menu.findItem(R.id.item_share);
 
         initTopAppBar();
         initBottomAppBar();
         originTitle = getIntent().getStringExtra("title");
         initHeader(originTitle);
         initBody(getIntent().getStringExtra("content"));
+    }
+
+    private void setEditStat(boolean isEdit) {
+        if (isEdit) {
+            menuDone.setVisible(true);
+            menuShare.setVisible(false);
+            return;
+        }
+
+        // return normal style
+        menuDone.setVisible(false);
+        menuShare.setVisible(true);
+
+        // save file
+        String title = editHeader.getText().toString();
+        if (title.equals("")) {
+            title = getString(R.string.edit_bar_name);
+            editHeader.setText(title);
+        }
+
+        NoteModel note = new NoteModel(
+                title,
+                editBody.getText().toString(),
+                Calendar.getInstance().getTime()
+        );
+
+        // check if replace file is needed
+        if (originTitle == null || Objects.equals(originTitle, title))
+            NoteFileHelper.setNote(note);
+        else {
+            NoteFileHelper.setNote(note, originTitle);
+            originTitle = title;
+        }
     }
 
     private void initTopAppBar() {
