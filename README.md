@@ -2,12 +2,14 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/cworld1/notie?style=flat-square)](https://github.com/cworld1/notie/stargazers)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/y/cworld1/notie?label=commits&style=flat-square)](https://github.com/cworld1/notie/commits)
-
-<!-- [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/cworld1/notie/.github/workflows/docs-build.yml?branch=main&style=flat-square)](https://github.com/cworld1/notie/actions/workflows/docs-build.yml) -->
-
+[![Release version](https://img.shields.io/github/v/release/cworld1/notie?style=flat-square)](https://github.com/cworld1/notie/releases/latest)
 [![GitHub license](https://img.shields.io/github/license/cworld1/notie?style=flat-square)](https://github.com/cworld1/notie/blob/main/LICENSE)
 
 Android note App complies with Material You specifications, developed using Java.
+
+![App wide dark screen](src/app-wide-dark.png)
+
+![Edit wide dark screen](src/edit-wide-dark.png)
 
 ## Local Development
 
