@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initRecyclerView();
+    }
+
     private void initRecyclerView() {
         NoteHelper noteHelper = new NoteHelper(getApplicationContext(), "notes");
         List<NoteModel> noteList = noteHelper.getAllNotes();
