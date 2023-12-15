@@ -15,7 +15,6 @@
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/top_main_bar"
             app:navigationIcon="@drawable/outline_arrow_back_24"
             app:title="@string/settings_bar_name" />
 
