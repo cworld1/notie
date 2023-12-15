@@ -3,6 +3,7 @@ package com.cworld.notie;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -92,29 +93,7 @@ public class EditActivity extends AppCompatActivity {
                 editHeader.clearFocus();
                 editBody.clearFocus();
             } else if (itemId == R.id.item_share) {
-        MaterialToolbar topAppBar = findViewById(R.id.topAppBar);
-        initTopAppBar(topAppBar);
-        initBottomAppBar(findViewById(R.id.bottomAppBar));
-
-        String title = null;
-        if (getIntent().hasExtra("title")) {
-            title = getIntent().getStringExtra("title");
-        }
-        String content = null;
-        if (getIntent().hasExtra("content")) {
-            content = getIntent().getStringExtra("content");
-        }
-        EditText titleView = findViewById(R.id.editHeader);
-        EditText contentView = findViewById(R.id.editBody);
-        titleView.setText(title);
-        contentView.setText(content);
-
-
-        initHeader(findViewById(R.id.editHeader), topAppBar);
-    }
-
-    private void initHeader(@NonNull EditText editText, @NonNull MaterialToolbar topAppBar) {
-        editText.addTextChangedListener(new TextWatcher() {
+                share();
             } else return false;
             return true;
         });
@@ -169,5 +148,29 @@ public class EditActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void share() {
+        String content = editHeader.getText().toString();
+        if (!content.equals("")) content += "\n";
+        content += editBody.getText().toString();
+
+        if (content.equals("")) {
+            Snackbar.make(
+                    findViewById(android.R.id.content),
+                    R.string.no_text_alert,
+                    Snackbar.LENGTH_SHORT
+            ).show();
+            return;
+        }
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, content);
+
+        // set share info title
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_title));
+        // open share activity
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_to_title)));
     }
 }
