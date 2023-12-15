@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         initAppDrawer(findViewById(R.id.navigationDrawerView));
 
         findViewById(R.id.floatingCreateButton).setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, EditActivity.class);
+            Intent intent = new Intent(this, EditActivity.class);
             startActivity(intent);
         });
 
@@ -65,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
         NoteItemAdapter noteAdapter = new NoteItemAdapter(noteList);
         noteAdapter.setOnItemClickListener(note -> {
             Intent intent = new Intent();
-            intent.setClass(MainActivity.this, EditActivity.class);
+            intent.setClass(this, EditActivity.class);
             intent.putExtra("title", note.getTitle());
             intent.putExtra("content", note.getContent());
-//            intent.putExtra("editTime", note.getEditTime().getTime());
+            // intent.putExtra("editTime", note.getEditTime().getTime());
             startActivity(intent);
         });
         noteRecyclerView.setAdapter(noteAdapter);
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 if (result == null) {
                     Snackbar.make(
                             findViewById(android.R.id.content),
-                            "Failed to fetch poem",
+                            R.string.fetch_poem_alert,
                             Snackbar.LENGTH_SHORT
                     ).show();
                     return;
@@ -110,14 +110,16 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
             Intent intent;
-            if (itemId == R.id.website_item) {
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/cworld1/notie"));
+            if (itemId == R.id.all_item) {
+
+            } else if (itemId == R.id.website_item) {
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.repo_url)));
                 startActivity(intent);
             } else if (itemId == R.id.settings_item) {
-                intent = new Intent(MainActivity.this, SettingsActivity.class);
+                intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
             } else if (itemId == R.id.about_item) {
-                intent = new Intent(MainActivity.this, AboutActivity.class);
+                intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
             } else return false;
             return true;
