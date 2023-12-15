@@ -5,9 +5,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class TimeHelper {
+public class FormatHelper {
+    public static String text(String text) {
+        return text.replace("\u3000", " ").trim();
+    }
 
-    public static String format(Date lastEditTime) {
+    public static String time(Date lastEditTime) {
         Date currentTime = Calendar.getInstance().getTime();
         long duration = (currentTime.getTime() - lastEditTime.getTime()) / 1000;
 

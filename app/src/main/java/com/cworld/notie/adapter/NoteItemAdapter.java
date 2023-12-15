@@ -1,16 +1,14 @@
 package com.cworld.notie.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cworld.notie.R;
-import com.cworld.notie.util.TimeHelper;
+import com.cworld.notie.util.FormatHelper;
 
 import java.util.List;
 
@@ -35,9 +33,13 @@ public class NoteItemAdapter extends RecyclerView.Adapter<NoteItemAdapter.NoteVi
     @Override
     public void onBindViewHolder(NoteViewHolder holder, int position) {
         NoteModel currentNote = noteList.get(position);
-        String formattedTime = TimeHelper.format(currentNote.getEditTime());
-        holder.titleTextView.setText(currentNote.getTitle());
-        holder.contentTextView.setText(currentNote.getContent());
+
+        String formattedTime = FormatHelper.time(currentNote.getEditTime());
+        String formattedTitle = FormatHelper.text(currentNote.getTitle());
+        String formattedContent = FormatHelper.text(currentNote.getContent());
+
+        holder.titleTextView.setText(formattedTitle);
+        holder.contentTextView.setText(formattedContent);
         holder.editTimeTextView.setText(formattedTime);
 
         holder.itemView.setOnClickListener(v -> {
