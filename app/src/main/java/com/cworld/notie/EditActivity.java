@@ -1,7 +1,6 @@
 package com.cworld.notie;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -14,6 +13,10 @@ import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.color.DynamicColors;
 
 public class EditActivity extends AppCompatActivity {
+    MaterialToolbar topAppBar;
+    BottomAppBar bottomAppBar;
+    EditText editHeader;
+    EditText editBody;
     String originTitle;
 
     @Override
@@ -23,6 +26,26 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
         DynamicColors.applyToActivitiesIfAvailable(getApplication());
 
+        topAppBar = findViewById(R.id.topAppBar);
+        bottomAppBar = findViewById(R.id.bottomAppBar);
+        editHeader = findViewById(R.id.editHeader);
+        editBody = findViewById(R.id.editBody);
+
+        initTopAppBar();
+        initBottomAppBar();
+        originTitle = getIntent().getStringExtra("title");
+        initHeader(originTitle);
+        initBody(getIntent().getStringExtra("content"));
+    }
+
+    private void initTopAppBar() {
+        topAppBar.setNavigationOnClickListener(v -> finish());
+        topAppBar.setOnMenuItemClickListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.item_done) {
+                editHeader.clearFocus();
+                editBody.clearFocus();
+            } else if (itemId == R.id.item_share) {
         MaterialToolbar topAppBar = findViewById(R.id.topAppBar);
         initTopAppBar(topAppBar);
         initBottomAppBar(findViewById(R.id.bottomAppBar));
@@ -46,8 +69,29 @@ public class EditActivity extends AppCompatActivity {
 
     private void initHeader(@NonNull EditText editText, @NonNull MaterialToolbar topAppBar) {
         editText.addTextChangedListener(new TextWatcher() {
+            } else return false;
+            return true;
+        });
+    }
+
+    private void initHeader(String title) {
+        // set title content
+        editHeader.setText(title);
+        if (title != null) {
+            topAppBar.setTitle(title);
+        }
+
+        // set header focus with action
+        editHeader.setOnFocusChangeListener((v, hasFocus) -> {
+            setEditStat(hasFocus);
+        });
+
+        // watch text change (sync with topappbar)
+        editHeader.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String title;
@@ -57,16 +101,22 @@ public class EditActivity extends AppCompatActivity {
                     title = s.toString();
                 topAppBar.setTitle(title);
             }
+
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
         });
     }
 
-    private void initTopAppBar(@NonNull MaterialToolbar topAppBar) {
-        topAppBar.setNavigationOnClickListener(v -> finish());
+    private void initBody(String content) {
+        // set body content
+        editBody.setText(content);
+
+        // set header focus with action
+        editBody.setOnFocusChangeListener((v, hasFocus) -> setEditStat(hasFocus));
     }
 
-    private void initBottomAppBar(@NonNull BottomAppBar bottomAppBar) {
+    private void initBottomAppBar() {
         bottomAppBar.setNavigationOnClickListener(item -> {
             int itemId = item.getId();
             if (itemId == R.id.actionCommand) {

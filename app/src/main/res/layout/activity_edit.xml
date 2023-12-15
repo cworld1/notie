@@ -56,6 +56,7 @@
                 android:gravity="start|top"
                 android:hint="@string/text_hint_body"
                 android:inputType="textMultiLine"
+                android:lineSpacingExtra="5sp"
                 android:minHeight="80dp"
                 android:paddingBottom="30dp"
                 android:text="@string/test_long" />
