@@ -1,5 +1,6 @@
 package com.cworld.notie.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 
@@ -15,12 +16,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class NoteFileHelper {
-    private String path;
-    private Context context;
+    private static String path;
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
 
     public NoteFileHelper(Context context, String path) {
-        this.context = context;
-        this.path = path;
+        NoteFileHelper.context = context;
+        NoteFileHelper.path = path;
     }
 
     public List<NoteModel> getAllNotes() {
@@ -46,7 +48,7 @@ public class NoteFileHelper {
         return notes;
     }
 
-    public boolean setNote(NoteModel note) {
+    public static void setNote(NoteModel note) {
         try {
             File directory = new File(context.getExternalFilesDir(null), path);
             if (!directory.exists()) {
@@ -57,12 +59,24 @@ public class NoteFileHelper {
             FileOutputStream fos = new FileOutputStream(file);
             fos.write(note.getContent().getBytes());
             fos.close();
-            return true;
         } catch (IOException ex) {
             Log.d("fileAccess", "写文件失败");
             ex.printStackTrace();
         }
-        return false;
+    }
+
+
+    public static void setNote(NoteModel note, String originTitle) {
+        try {
+            File directory = new File(context.getExternalFilesDir(null), path);
+            File file = new File(directory, originTitle + ".txt");
+            if (file.exists()) {
+                file.delete();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        setNote(note);
     }
 
     private String getNoteContent(File file) {

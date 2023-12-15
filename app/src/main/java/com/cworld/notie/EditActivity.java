@@ -14,6 +14,7 @@ import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.color.DynamicColors;
 
 public class EditActivity extends AppCompatActivity {
+    String originTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
