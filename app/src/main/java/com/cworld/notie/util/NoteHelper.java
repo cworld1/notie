@@ -15,14 +15,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class NoteFileHelper {
+public class NoteHelper {
     private static String path;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
 
-    public NoteFileHelper(Context context, String path) {
-        NoteFileHelper.context = context;
-        NoteFileHelper.path = path;
+    public NoteHelper(Context context, String path) {
+        NoteHelper.context = context;
+        NoteHelper.path = path;
     }
 
     public List<NoteModel> getAllNotes() {

@@ -3,7 +3,7 @@ package com.cworld.notie;
 import com.cworld.notie.adapter.NoteItemAdapter;
 import com.cworld.notie.adapter.NoteModel;
 import com.cworld.notie.util.Hitokoto;
-import com.cworld.notie.util.NoteFileHelper;
+import com.cworld.notie.util.NoteHelper;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        NoteFileHelper noteFileHelper = new NoteFileHelper(getApplicationContext(), "notes");
-        List<NoteModel> noteList = noteFileHelper.getAllNotes();
+        NoteHelper noteHelper = new NoteHelper(getApplicationContext(), "notes");
+        List<NoteModel> noteList = noteHelper.getAllNotes();
 
         // Sort by last edit time
         noteList.sort((note1, note2) -> {

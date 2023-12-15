@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.cworld.notie.adapter.NoteModel;
-import com.cworld.notie.util.NoteFileHelper;
+import com.cworld.notie.util.NoteHelper;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.color.DynamicColors;
@@ -78,9 +78,9 @@ public class EditActivity extends AppCompatActivity {
 
         // check if replace file is needed
         if (originTitle == null || Objects.equals(originTitle, title))
-            NoteFileHelper.setNote(note);
+            NoteHelper.setNote(note);
         else {
-            NoteFileHelper.setNote(note, originTitle);
+            NoteHelper.setNote(note, originTitle);
             originTitle = title;
         }
     }
