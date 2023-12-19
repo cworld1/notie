@@ -67,16 +67,24 @@ public class NoteHelper {
 
 
     public static void setNote(NoteModel note, String originTitle) {
+        deleteSpecifyNote(originTitle);
+        setNote(note);
+    }
+
+    public static void deleteNote(NoteModel note) {
+        deleteSpecifyNote(note.getTitle());
+    }
+
+    private static void deleteSpecifyNote(String title) {
         try {
             File directory = new File(context.getExternalFilesDir(null), path);
-            File file = new File(directory, originTitle + ".txt");
+            File file = new File(directory, title + ".txt");
             if (file.exists()) {
                 file.delete();
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        setNote(note);
     }
 
     private String getNoteContent(File file) {
