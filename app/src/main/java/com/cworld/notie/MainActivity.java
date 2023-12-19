@@ -14,6 +14,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -25,11 +29,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
+    NoteItemAdapter noteAdapter;
+    NoteHelper noteHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,20 +60,26 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.top_main_bar, menu);
+        return true;
+    }
+
     private void initRecyclerView() {
-        NoteHelper noteHelper = new NoteHelper(getApplicationContext(), "notes");
+        noteHelper = new NoteHelper(getApplicationContext(), "notes");
         List<NoteModel> noteList = noteHelper.getAllNotes();
 
         // Sort by last edit time
-        noteList.sort((note1, note2) -> {
-            Date time1 = note1.getEditTime();
-            Date time2 = note2.getEditTime();
-            return time2.compareTo(time1);
-        });
+//        noteList.sort((note1, note2) -> {
+//            Date time1 = note1.getEditTime();
+//            Date time2 = note2.getEditTime();
+//            return time2.compareTo(time1);
+//        });
 
         // Initialize and set up the RecyclerView
         RecyclerView noteRecyclerView = findViewById(R.id.noteRecyclerView);
-        NoteItemAdapter noteAdapter = new NoteItemAdapter(noteList);
+        noteAdapter = new NoteItemAdapter(noteList);
         noteAdapter.setOnItemClickListener(note -> {
             Intent intent = new Intent();
             intent.setClass(this, EditActivity.class);
@@ -82,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initTopAppBar(@NonNull MaterialToolbar topAppBar) {
+        setSupportActionBar(topAppBar);
         boolean isTablet = getResources().getConfiguration().smallestScreenWidthDp >= 600;
         // set click listener
         if (!isTablet) {
@@ -90,6 +102,14 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.open();
             });
         }
+        topAppBar.setOnMenuItemClickListener(item -> {
+            final int itemId = item.getItemId();
+            if (itemId == R.id.item_sort) {
+
+            } else if (itemId == R.id.item_select) {
+            } else return false;
+            return true;
+        });
 
         // Add poem to title bar
         Executors.newSingleThreadExecutor().execute(() -> {
