@@ -73,5 +73,6 @@
     <string name="about_contributors">Contributors</string>
     <string name="author_cworld_button_text">CWorld</string>
     <string name="title_done">Done</string>
+    <string name="content_description_delete">Delete</string>
 
 </resources>

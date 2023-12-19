@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +34,7 @@ import java.util.List;
 import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
+    ActionMode actionMode;
     NoteItemAdapter noteAdapter;
     NoteHelper noteHelper;
 
@@ -107,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
             if (itemId == R.id.item_sort) {
 
             } else if (itemId == R.id.item_select) {
+                initActionMode(topAppBar);
             } else return false;
             return true;
         });
@@ -152,4 +155,60 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void initActionMode(View view) {
+        if (actionMode != null) {
+            return;
+        }
+
+        // Start the CAB using the ActionMode.Callback defined earlier.
+        actionMode = startActionMode(new ActionMode.Callback() {
+
+            // Called when the action mode is created. startActionMode() is called.
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                // Inflate a menu resource providing context menu items.
+                mode.getMenuInflater().inflate(R.menu.contextual_action_bar, menu);
+                return true;
+            }
+
+            // Called each time the action mode is shown. Always called after
+            // onCreateActionMode, and might be called multiple times if the mode
+            // is invalidated.
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                view.setVisibility(View.GONE);
+                noteAdapter.setSelectionMode(true);
+                return true; // Return false if nothing is done.
+            }
+
+            // Called when the user selects a contextual menu item.
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.action_delete) {
+                    List<NoteModel> notes = noteAdapter.getSelectedItems();
+                    for (NoteModel note : notes) {
+                        NoteHelper.deleteNote(note);
+                    }
+                    initRecyclerView();
+                    Snackbar.make(
+                            findViewById(android.R.id.content),
+                            "Delete successful!",
+                            Snackbar.LENGTH_SHORT
+                    ).show();
+                    mode.finish(); // Action picked, so close the CAB.
+                } else return false;
+                return true;
+            }
+
+            // Called when the user exits the action mode.
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                view.setVisibility(View.VISIBLE);
+                noteAdapter.setSelectionMode(false);
+                noteAdapter.clearSelection();
+                actionMode = null;
+            }
+        });
+    }
 }
