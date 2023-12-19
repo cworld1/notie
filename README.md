@@ -16,10 +16,10 @@ Android note App complies with Material You specifications, developed using Java
 Environment requirements:
 
 - [SDK](https://developer.android.com/tools/releases/platforms): Android 14.0 ("UpsideDownCake")
-    
-    - Android SDK Platform 34
-    - Sources for Android 34
-    - Google APls Intel x86_64 Atom System Image
+
+  - Android SDK Platform 34
+  - Sources for Android 34
+  - Google APls Intel x86_64 Atom System Image
 
 - [Android Gradle Plugin Version](https://developer.android.com/build/agp-upgrade-assistant): 8.1.4
 
@@ -52,18 +52,18 @@ Follow the [Google Java Style Guide](https://google.github.io/styleguide/javagui
 
 ### XML
 
--   2 space indentation
--   Resource naming (including IDs) is `lowercase_with_underscores`
--   Attribute ordering:
-    1.  `xmlns:android`
-    2.  other `xmlns:`
-    3.  `android:id`
-    4.  `style`
-    5.  `android:layout_` attributes
-    6.  `android:padding` attributes
-    7.  other `android:` attributes
-    8.  `app:` attributes
-    9.  `tool:` attributes
+- 2 space indentation
+- Resource naming (including IDs) is `lowercase_with_underscores`
+- Attribute ordering:
+  1.  `xmlns:android`
+  2.  other `xmlns:`
+  3.  `android:id`
+  4.  `style`
+  5.  `android:layout_` attributes
+  6.  `android:padding` attributes
+  7.  other `android:` attributes
+  8.  `app:` attributes
+  9.  `tool:` attributes
 
 ## License
 
