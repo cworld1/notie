@@ -2,10 +2,12 @@ package com.cworld.notie;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -107,11 +109,9 @@ public class EditActivity extends AppCompatActivity {
         }
 
         // set header focus with action
-        editHeader.setOnFocusChangeListener((v, hasFocus) -> {
-            setEditStat(hasFocus);
-        });
+        editHeader.setOnFocusChangeListener((v, hasFocus) -> setEditStat(hasFocus));
 
-        // watch text change (sync with topappbar)
+        // watch text change (sync with top appbar)
         editHeader.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -142,12 +142,52 @@ public class EditActivity extends AppCompatActivity {
     }
 
     private void initBottomAppBar() {
-        bottomAppBar.setNavigationOnClickListener(item -> {
-            int itemId = item.getId();
+        bottomAppBar.setOnMenuItemClickListener(item -> {
+            final int itemId = item.getItemId();
+            int start = Math.max(editBody.getSelectionStart(), 0);
+            int end = Math.max(editBody.getSelectionEnd(), 0);
+            Editable editable = editBody.getText();
             if (itemId == R.id.actionCommand) {
 
-            }
+            } else if (itemId == R.id.textBold) {
+                insertPhrase(editable, "**", "**", start, end);
+            } else if (itemId == R.id.textItalic) {
+                insertPhrase(editable, "*", "*", start, end);
+            } else if (itemId == R.id.textStrikethrough) {
+                insertPhrase(editable, "~~", "~~", start, end);
+            } else if (itemId == R.id.textQuote) {
+                insertPhrase(editable, "> ", start);
+            } else if (itemId == R.id.textList) {
+                insertPhrase(editable, "- ", start);
+            } else if (itemId == R.id.textNumList) {
+                insertPhrase(editable, "1. ", start);
+            } else return false;
+            return true;
         });
+    }
+
+    private void insertPhrase(Editable editable, String phrase, int start) {
+        int length = editable.length(), lineStart = 0;
+        if (start >= length) lineStart = length;
+        else if (start > 0) { // search for newlines until find line start
+            for (int i = start - 1; i >= 0; i--) {
+                if (editable.charAt(i) == '\n') lineStart = i + 1;
+            }
+        }
+        editable.insert(lineStart, phrase);
+    }
+
+    private void insertPhrase(Editable editable,
+                              String phrase1, String phrase2, int start, int end) {
+        // If selected, auto add to before & after of select
+        if (start != end) {
+            editable.replace(start, end,
+                    new SpannableStringBuilder(
+                            phrase1 + editable.subSequence(start, end) + phrase2),
+                    0, phrase1.length() + phrase2.length() + end - start);
+        } else {
+            editable.insert(start, phrase1 + phrase2);
+        }
     }
 
     private void share() {
