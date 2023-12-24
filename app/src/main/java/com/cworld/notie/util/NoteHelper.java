@@ -75,6 +75,10 @@ public class NoteHelper {
         deleteSpecifyNote(note.getTitle());
     }
 
+    public static void deleteNote(String title) {
+        deleteSpecifyNote(title);
+    }
+
     private static void deleteSpecifyNote(String title) {
         try {
             File directory = new File(context.getExternalFilesDir(null), path);

@@ -153,6 +153,9 @@ public class EditActivity extends AppCompatActivity {
                 setViewStat(true);
             } else if (itemId == R.id.item_share) {
                 share();
+            } else if (itemId == R.id.item_delete) {
+                NoteHelper.deleteNote(originTitle);
+                finish();
             } else return false;
             return true;
         });
