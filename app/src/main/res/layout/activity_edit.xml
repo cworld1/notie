@@ -65,7 +65,7 @@
 
             <TextView
                 android:visibility="gone"
-                android:id="@+id/textView"
+                android:id="@+id/markdownView"
                 style="@style/Widget.Material3.AutoCompleteTextView.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

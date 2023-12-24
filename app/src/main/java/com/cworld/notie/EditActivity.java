@@ -45,6 +45,7 @@ public class EditActivity extends AppCompatActivity {
     MenuItem menuDone;
     MenuItem menuShare;
 
+    // utils
     Markwon markwon;
 
     @Override
@@ -59,25 +60,21 @@ public class EditActivity extends AppCompatActivity {
         bottomAppBar = findViewById(R.id.bottomAppBar);
         editHeader = findViewById(R.id.editHeader);
         editBody = findViewById(R.id.editBody);
+        markdownView = findViewById(R.id.markdownView);
         // menu
         Menu menu = topAppBar.getMenu();
         menuView = menu.findItem(R.id.item_preview);
         menuDone = menu.findItem(R.id.item_done);
         menuShare = menu.findItem(R.id.item_share);
         // obtain an instance of markdown component
-        markwon = Markwon.create(getApplicationContext());
+        markwon = Markwon.create(this);
 
         initTopAppBar();
         initBottomAppBar();
         originTitle = getIntent().getStringExtra("title");
         initHeader(originTitle);
         initBody(getIntent().getStringExtra("content"));
-
-        // create editor
-        markdownView = findViewById(R.id.textView);
-        markdownView.setOnClickListener(v -> {
-            setEditStat(true);
-        });
+        initPreview();
     }
 
     private void setViewStat(boolean isView) {
@@ -176,6 +173,7 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String title;
@@ -185,6 +183,7 @@ public class EditActivity extends AppCompatActivity {
                     title = s.toString();
                 topAppBar.setTitle(title);
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -204,7 +203,6 @@ public class EditActivity extends AppCompatActivity {
             // it's wise to check if rendered result is for the same input,
             // for example by matching raw input
             if (editBody.getText().toString().equals(result.resultEditable().toString())) {
-
                 // if you are in background thread do not forget
                 // to execute dispatch in main thread
                 result.dispatchTo(editBody.getText());
@@ -248,7 +246,13 @@ public class EditActivity extends AppCompatActivity {
         });
     }
 
-    private void insertPhrase(Editable editable, String phrase, int start) {
+    private void initPreview() {
+        // create editor
+        markdownView.setOnClickListener(v -> setEditStat(true));
+    }
+
+    private void insertPhrase(@NonNull Editable editable, String phrase, int start) {
+        // quick insert chips of text
         int length = editable.length(), lineStart = 0;
         if (start >= length) lineStart = length;
         else if (start > 0) { // search for newlines until find line start
