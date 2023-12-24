@@ -1,9 +1,6 @@
 package com.cworld.notie;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,7 +8,14 @@ import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.cworld.notie.adapter.NoteModel;
 import com.cworld.notie.util.NoteHelper;
@@ -75,6 +79,17 @@ public class EditActivity extends AppCompatActivity {
             setEditStat(true);
         });
     }
+
+    private void setViewStat(boolean isView) {
+        if (!isView) {
+            editBody.setVisibility(View.VISIBLE);
+            markdownView.setVisibility(View.GONE);
+            return;
+        }
+        // set markdown
+        markwon.setMarkdown(markdownView, editBody.getText().toString());
+        editBody.setVisibility(View.GONE);
+        markdownView.setVisibility(View.VISIBLE);
     }
 
     private void setEditStat(boolean isEdit) {
@@ -89,12 +104,20 @@ public class EditActivity extends AppCompatActivity {
             if (editHeader.hasFocus() || editBody.hasFocus()) {
                 return;
             }
+            editBody.requestFocus();
+            editBody.setSelection(editBody.getText().length());
+
+            InputMethodManager imm = (InputMethodManager)
+                    editBody.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(editBody, InputMethodManager.SHOW_IMPLICIT);
             return;
         }
 
         // return normal style
         menuDone.setVisible(false);
         menuShare.setVisible(true);
+        menuView.setVisible(true);
+        bottomAppBar.setVisibility(View.GONE);
 
         // save file
         String title = editHeader.getText().toString();
@@ -169,11 +192,13 @@ public class EditActivity extends AppCompatActivity {
         // set body content
         editBody.setText(content);
 
-        // set header focus with action
+        // set body focus with action
         editBody.setOnFocusChangeListener((v, hasFocus) -> setEditStat(hasFocus));
     }
 
     private void initBottomAppBar() {
+        // default to hide bottom bar
+        bottomAppBar.setVisibility(View.GONE);
         bottomAppBar.setOnMenuItemClickListener(item -> {
             final int itemId = item.getItemId();
             int start = Math.max(editBody.getSelectionStart(), 0);
