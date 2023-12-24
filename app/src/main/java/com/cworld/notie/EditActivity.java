@@ -22,15 +22,26 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
 import java.util.Objects;
+import java.util.concurrent.Executors;
+
+import io.noties.markwon.Markwon;
+import io.noties.markwon.editor.MarkwonEditor;
+import io.noties.markwon.editor.MarkwonEditorTextWatcher;
 
 public class EditActivity extends AppCompatActivity {
+    String originTitle;
+
+    // components
     MaterialToolbar topAppBar;
     BottomAppBar bottomAppBar;
     EditText editHeader;
     EditText editBody;
+    TextView markdownView;
+    MenuItem menuView;
     MenuItem menuDone;
     MenuItem menuShare;
-    String originTitle;
+
+    Markwon markwon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,25 +50,45 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
         DynamicColors.applyToActivitiesIfAvailable(getApplication());
 
+        // components
         topAppBar = findViewById(R.id.topAppBar);
         bottomAppBar = findViewById(R.id.bottomAppBar);
         editHeader = findViewById(R.id.editHeader);
         editBody = findViewById(R.id.editBody);
+        // menu
         Menu menu = topAppBar.getMenu();
+        menuView = menu.findItem(R.id.item_preview);
         menuDone = menu.findItem(R.id.item_done);
         menuShare = menu.findItem(R.id.item_share);
+        // obtain an instance of markdown component
+        markwon = Markwon.create(getApplicationContext());
 
         initTopAppBar();
         initBottomAppBar();
         originTitle = getIntent().getStringExtra("title");
         initHeader(originTitle);
         initBody(getIntent().getStringExtra("content"));
+
+        // create editor
+        markdownView = findViewById(R.id.textView);
+        markdownView.setOnClickListener(v -> {
+            setEditStat(true);
+        });
+    }
     }
 
     private void setEditStat(boolean isEdit) {
         if (isEdit) {
+            // update stat & view
+            setViewStat(false);
             menuDone.setVisible(true);
             menuShare.setVisible(false);
+            menuView.setVisible(false);
+            bottomAppBar.setVisibility(View.VISIBLE);
+
+            if (editHeader.hasFocus() || editBody.hasFocus()) {
+                return;
+            }
             return;
         }
 
@@ -94,6 +125,9 @@ public class EditActivity extends AppCompatActivity {
             if (itemId == R.id.item_done) {
                 editHeader.clearFocus();
                 editBody.clearFocus();
+                setEditStat(false);
+            } else if (itemId == R.id.item_preview) {
+                setViewStat(true);
             } else if (itemId == R.id.item_share) {
                 share();
             } else return false;
@@ -116,7 +150,6 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String title;
@@ -126,7 +159,6 @@ public class EditActivity extends AppCompatActivity {
                     title = s.toString();
                 topAppBar.setTitle(title);
             }
-
             @Override
             public void afterTextChanged(Editable s) {
             }

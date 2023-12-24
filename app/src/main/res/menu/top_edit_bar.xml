@@ -9,6 +9,13 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/item_preview"
+        android:contentDescription="@string/content_description_preview"
+        android:icon="@drawable/outline_preview_24"
+        android:title="@string/title_preview"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/item_share"
         android:contentDescription="@string/content_description_sort"
         android:icon="@drawable/outline_share_24"

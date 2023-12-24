@@ -74,5 +74,7 @@
     <string name="author_cworld_button_text">CWorld</string>
     <string name="title_done">Done</string>
     <string name="content_description_delete">Delete</string>
+    <string name="content_description_preview">Preview with Markdown</string>
+    <string name="title_preview">Preview</string>
 
 </resources>
