@@ -7,7 +7,13 @@
 
 Android note App complies with Material You specifications, developed using Java.
 
+<img src="src/app-2.png" alt="Multi select" style="zoom:50%;" /> <img src="src/app-3.png" alt="App drawer" style="zoom:50%;" />
+
+<img src="src/settings.png" alt="Settings" style="zoom:50%;" /> <img src="src/note-2.png" alt="Note info" style="zoom:50%;" />
+
 ![App wide dark screen](src/app-wide-dark.png)
+
+![Note wide dark screen](src/note-wide-dark.png)
 
 ![Edit wide dark screen](src/edit-wide-dark.png)
 
