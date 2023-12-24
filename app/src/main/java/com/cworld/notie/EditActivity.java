@@ -194,6 +194,26 @@ public class EditActivity extends AppCompatActivity {
 
         // set body focus with action
         editBody.setOnFocusChangeListener((v, hasFocus) -> setEditStat(hasFocus));
+
+        // firstly render markdown content
+        final MarkwonEditor editor = MarkwonEditor.create(markwon);
+        editor.preRender(editBody.getText(), (MarkwonEditor.PreRenderResultListener) result -> {
+            // it's wise to check if rendered result is for the same input,
+            // for example by matching raw input
+            if (editBody.getText().toString().equals(result.resultEditable().toString())) {
+
+                // if you are in background thread do not forget
+                // to execute dispatch in main thread
+                result.dispatchTo(editBody.getText());
+            }
+        });
+
+        // set edit render markdown listener (with thread)
+        editBody.addTextChangedListener(MarkwonEditorTextWatcher.withProcess(editor));
+        editBody.addTextChangedListener(MarkwonEditorTextWatcher.withPreRender(
+                editor,
+                Executors.newCachedThreadPool(),
+                editBody));
     }
 
     private void initBottomAppBar() {
