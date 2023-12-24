@@ -27,7 +27,7 @@ public class AboutActivity extends AppCompatActivity {
         try {
             PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
             String version = packageInfo.versionName;
-            String versionFormat = getResources().getString(R.string.version_format);
+            String versionFormat = getString(R.string.version_format);
             TextView versionTextview = findViewById(R.id.app_version_textview);
             versionTextview.setText(String.format(versionFormat, version));
         } catch (PackageManager.NameNotFoundException e) {

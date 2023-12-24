@@ -18,7 +18,6 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        noteHelper = new NoteHelper(getApplicationContext(), "notes");
+        noteHelper = new NoteHelper(this, "notes");
         List<NoteModel> noteList = noteHelper.getAllNotes();
 
         // Sort by last edit time
@@ -136,20 +135,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initAppDrawer(@NonNull NavigationView navigationView) {
+        navigationView.setCheckedItem(R.id.all_item);
         navigationView.setNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            Intent intent;
             if (itemId == R.id.all_item) {
 
             } else if (itemId == R.id.website_item) {
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.repo_url)));
-                startActivity(intent);
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(getString(R.string.repo_url))));
             } else if (itemId == R.id.settings_item) {
-                intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, SettingsActivity.class));
             } else if (itemId == R.id.about_item) {
-                intent = new Intent(this, AboutActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, AboutActivity.class));
             } else return false;
             return true;
         });
