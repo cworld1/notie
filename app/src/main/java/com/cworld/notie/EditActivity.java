@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cworld.notie.adapter.NoteModel;
 import com.cworld.notie.util.NoteHelper;
+import com.cworld.notie.util.PreferenceHelper;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.color.DynamicColors;
@@ -47,6 +48,7 @@ public class EditActivity extends AppCompatActivity {
 
     // utils
     Markwon markwon;
+    PreferenceHelper prefHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,8 @@ public class EditActivity extends AppCompatActivity {
         menuShare = menu.findItem(R.id.item_share);
         // obtain an instance of markdown component
         markwon = Markwon.create(this);
+        // preference
+        prefHelper = new PreferenceHelper(this);
 
         initTopAppBar();
         initBottomAppBar();
@@ -191,11 +195,16 @@ public class EditActivity extends AppCompatActivity {
     }
 
     private void initBody(String content) {
+        // set lineHeight
+        editBody.setLineSpacing(prefHelper.getLineHeight(), 1);
         // set body content
         editBody.setText(content);
 
         // set body focus with action
         editBody.setOnFocusChangeListener((v, hasFocus) -> setEditStat(hasFocus));
+
+        // set content markdown highlight
+        if (prefHelper.getHighlightEnabled()) return;
 
         // firstly render markdown content
         final MarkwonEditor editor = MarkwonEditor.create(markwon);
@@ -247,6 +256,7 @@ public class EditActivity extends AppCompatActivity {
     }
 
     private void initPreview() {
+        if (prefHelper.getPreviewEnabled()) setViewStat(true);
         // create editor
         markdownView.setOnClickListener(v -> setEditStat(true));
     }
