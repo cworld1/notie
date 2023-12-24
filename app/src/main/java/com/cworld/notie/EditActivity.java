@@ -23,6 +23,7 @@ import com.cworld.notie.util.PreferenceHelper;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.color.DynamicColors;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
@@ -154,6 +155,8 @@ public class EditActivity extends AppCompatActivity {
                 setViewStat(true);
             } else if (itemId == R.id.item_share) {
                 share();
+            } else if (itemId == R.id.item_info) {
+                showInfo();
             } else if (itemId == R.id.item_delete) {
                 NoteHelper.deleteNote(originTitle);
                 finish();
@@ -308,5 +311,22 @@ public class EditActivity extends AppCompatActivity {
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_title));
         // open share activity
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share_to_title)));
+    }
+
+    void showInfo() {
+        String text = editBody.getText().toString();
+        // calc words
+        String[] words = text.trim().split("\\s+");
+        // calc lines
+        String[] lines = text.split("\r\n|\r|\n");
+        int lineCount = lines.length;
+
+        String textFormat = getString(R.string.dialog_content);
+        String statisticsText = String.format(textFormat, text.length(), words.length, lines.length);
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.dialog_title)
+                .setMessage(statisticsText)
+                .setPositiveButton(R.string.dialog_accept, null)
+                .show();
     }
 }

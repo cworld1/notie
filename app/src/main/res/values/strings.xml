@@ -55,6 +55,9 @@
     <string name="no_text_alert">No text were included.</string>
     <string name="share_to_title">Share note to…</string>
     <string name="share_title">A Note shared from Notie</string>
+    <string name="dialog_title">Note Info</string>
+    <string name="dialog_content">Length of content: %d\nCount of words: %d\nLines of content: %d</string>
+    <string name="dialog_accept">Accept</string>
 
     <!--settings view-->
     <string name="settings_bar_name">@string/settings_title</string>
