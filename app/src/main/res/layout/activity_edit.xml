@@ -23,9 +23,9 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/editNestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="45dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -45,7 +45,8 @@
                 android:hint="@string/text_hint_header"
                 android:inputType="text"
                 android:text="@string/test"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:autofillHints="New Draft" />
 
             <EditText
                 android:id="@+id/editBody"
@@ -58,6 +59,16 @@
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="5sp"
                 android:minHeight="80dp"
+                android:paddingBottom="75dp"
+                android:text="@string/test_long"
+                android:autofillHints="Content" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textView"
+                style="@style/Widget.Material3.AutoCompleteTextView.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingBottom="30dp"
                 android:text="@string/test_long" />
 

@@ -238,6 +238,8 @@ public class EditActivity extends AppCompatActivity {
                 insertPhrase(editable, "- ", start);
             } else if (itemId == R.id.textNumList) {
                 insertPhrase(editable, "1. ", start);
+            } else if (itemId == R.id.textTag) {
+                insertPhrase(editable, "# ", start);
             } else return false;
             return true;
         });
