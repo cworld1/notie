@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.cworld.notie.fragment.SettingsFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.color.DynamicColors;
 
@@ -18,7 +19,14 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         DynamicColors.applyToActivitiesIfAvailable(getApplication());
 
+        // init components
         initTopAppBar(findViewById(R.id.topAppBar));
+
+        // get fragments
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.settings_container, new SettingsFragment())
+                .commit();
     }
 
     private void initTopAppBar(MaterialToolbar topAppBar) {

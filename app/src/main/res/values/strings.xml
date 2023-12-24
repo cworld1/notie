@@ -72,9 +72,11 @@
     <string name="wechat_button_text">Wechat</string>
     <string name="about_contributors">Contributors</string>
     <string name="author_cworld_button_text">CWorld</string>
-    <string name="title_done">Done</string>
     <string name="content_description_delete">Delete</string>
     <string name="content_description_preview">Preview with Markdown</string>
-    <string name="title_preview">Preview</string>
+    <string name="category_title_editor">Editor</string>
+    <string name="category_title_markdown">Markdown</string>
+    <string name="category_title_others">Others</string>
 
+    <!--others-->
 </resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/category_title_editor">
+
+        <SeekBarPreference
+            android:max="20"
+            app:defaultValue="10"
+            app:icon="@drawable/outline_height_24"
+            app:key="line_height"
+            app:min="0"
+            app:seekBarIncrement="1"
+            app:showSeekBarValue="true"
+            app:summary="Height of each line of text (0~10)"
+            app:title="Line Height" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/category_title_markdown">
+
+        <SwitchPreferenceCompat
+            app:icon="@drawable/outline_preview_24"
+            app:key="markdown_preview"
+            app:summary="Auto enable Markdown preview mode"
+            app:title="Auto Markdown Preview" />
+
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:icon="@drawable/outline_ink_highlighter_move_24"
+            app:key="markdown_highlight"
+            app:summary="Enable Markdown text highlight on edit"
+            app:title="Markdown Highlight" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory app:title="@string/category_title_others">
+
+        <Preference
+            app:key="repo"
+            app:icon="@drawable/outline_web_24"
+            app:title="@string/website_title" />
+
+        <Preference
+            app:key="about"
+            app:icon="@drawable/outline_info_24"
+            app:title="@string/about_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
