@@ -51,4 +51,11 @@
         android:contentDescription="@string/content_description_num_list"
         app:showAsAction="always"/>
 
+    <item
+        android:id="@+id/textTag"
+        android:icon="@drawable/outline_tag_24"
+        android:title="@string/title_tag"
+        android:contentDescription="@string/content_description_tag"
+        app:showAsAction="always"/>
+
 </menu>

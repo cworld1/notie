@@ -29,6 +29,8 @@
     <!--edit view-->
     <string name="edit_bar_name">New Draft</string>
     <!--top edit bar-->
+    <string name="title_preview">Preview</string>
+    <string name="title_done">Done</string>
     <string name="title_share">Share</string>
     <string name="title_find">Find in Note</string>
     <string name="title_delete">Delete</string>
@@ -37,6 +39,7 @@
     <string name="text_hint_header">Title</string>
     <string name="text_hint_body">Body</string>
     <!--bottom bar-->
+    <string name="title_command">Command</string>
     <string name="content_description_command">Command Palette</string>
     <string name="title_bold">Bold</string>
     <string name="content_description_bold">Insert Bold Text Template</string>
@@ -50,7 +53,8 @@
     <string name="content_description_list">Insert List Template</string>
     <string name="title_num_list">List (Number)</string>
     <string name="content_description_num_list">Insert Number List Template</string>
-    <string name="title_command">Command</string>
+    <string name="title_tag">Tag</string>
+    <string name="content_description_tag">Insert a Tag</string>
     <!--dynamic action-->
     <string name="no_text_alert">No text were included.</string>
     <string name="share_to_title">Share note to…</string>
