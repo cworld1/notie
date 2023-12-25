@@ -15,6 +15,5 @@
         <item name="android:layout_marginEnd">6dp</item>
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
     </style>
 </resources>
