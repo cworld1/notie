@@ -21,7 +21,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.color.DynamicColors;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -42,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DynamicColors.applyToActivitiesIfAvailable(getApplication());
 
         initTopAppBar(findViewById(R.id.topAppBar));
         initAppDrawer(findViewById(R.id.navigationDrawerView));

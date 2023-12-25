@@ -22,7 +22,6 @@ import com.cworld.notie.util.NoteHelper;
 import com.cworld.notie.util.PreferenceHelper;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.color.DynamicColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -56,7 +55,6 @@ public class EditActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        DynamicColors.applyToActivitiesIfAvailable(getApplication());
 
         // components
         topAppBar = findViewById(R.id.topAppBar);

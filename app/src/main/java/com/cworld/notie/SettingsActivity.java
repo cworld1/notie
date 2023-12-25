@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.cworld.notie.fragment.SettingsFragment;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.color.DynamicColors;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -16,7 +15,6 @@ public class SettingsActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        DynamicColors.applyToActivitiesIfAvailable(getApplication());
 
         // init components
         initTopAppBar(findViewById(R.id.topAppBar));
