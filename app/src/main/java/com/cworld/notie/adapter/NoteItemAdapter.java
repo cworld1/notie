@@ -1,13 +1,10 @@
 package com.cworld.notie.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;

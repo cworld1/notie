@@ -4,7 +4,6 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.cworld.notie.fragment.SettingsFragment;
 import com.google.android.material.appbar.MaterialToolbar;
