@@ -2,6 +2,7 @@ package com.cworld.notie.fragment;
 
 import android.os.Bundle;
 
+import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.cworld.notie.AboutActivity;
@@ -24,5 +25,12 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         PreferenceHelper.clickItem(
                 Objects.requireNonNull(findPreference("about")),
                 getContext(), AboutActivity.class);
+
+        Preference languagePreference = findPreference("language");
+        assert languagePreference != null;
+        languagePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+            PreferenceHelper.setApplicationLanguage(newValue.toString());
+            return true;
+        });
     }
 }

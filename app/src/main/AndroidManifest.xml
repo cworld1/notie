@@ -6,6 +6,7 @@
 
     <application
         android:name=".NotieApplication"
+        android:localeConfig="@xml/locales_config"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Notie"
-        tools:targetApi="31">
+        tools:targetApi="tiramisu">
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />

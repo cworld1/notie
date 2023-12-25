@@ -76,6 +76,10 @@
     <string name="content_description_markdown_preview">Auto enable Markdown preview mode</string>
     <string name="title_markdown_highlight">Markdown Highlight</string>
     <string name="content_description_markdown_highlight">Enable Markdown text highlight on edit</string>
+    <!--locale-->
+    <string name="category_title_locale">Locale</string>
+    <string name="title_language">Languages</string>
+    <string name="language_follow_system">Follow System</string>
     <!--others-->
     <string name="category_title_others">Others</string>
 
