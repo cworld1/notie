@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notie</string>
+    <string name="test">正在建设中…</string>
+    <string name="test_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="repo_url">http://github.com/cworld1/notie</string>
+
+    <!--主视图-->
+    <string name="app_bar_name">@string/app_name</string>
+    <string name="fab_create_desc">创建便签</string>
+    <!--顶部应用栏-->
+    <string name="title_select">选择</string>
+    <string name="content_description_select">选择便签</string>
+    <string name="title_sort">排序</string>
+    <string name="content_description_sort">排序项目</string>
+    <string name="content_description_menu">菜单</string>
+    <!--导航抽屉-->
+    <string name="header_title">@string/app_name</string>
+    <string name="header_text">用爱制作</string>
+    <string name="folder_subheader_title">文件夹</string>
+    <string name="all_notes_title">所有便签</string>
+    <string name="deleted_title">已删除</string>
+    <string name="app_subheader_title">应用</string>
+    <string name="website_title">仓库网站</string>
+    <string name="update_title">检查更新</string>
+    <string name="settings_title">设置</string>
+    <string name="about_title">关于</string>
+    <!--动态操作-->
+    <string name="fetch_poem_alert">获取诗歌失败</string>
+
+    <!--编辑视图-->
+    <string name="edit_bar_name">新建草稿</string>
+    <!--顶部编辑栏-->
+    <string name="title_preview">预览</string>
+    <string name="title_done">完成</string>
+    <string name="title_share">分享</string>
+    <string name="title_find">在便签中查找</string>
+    <string name="title_delete">删除</string>
+    <string name="title_info">便签信息</string>
+    <!--便签详情视图-->
+    <string name="text_hint_header">标题</string>
+    <string name="text_hint_body">内容</string>
+    <!--底部栏-->
+    <string name="title_command">命令</string>
+    <string name="content_description_command">命令面板</string>
+    <string name="title_bold">加粗</string>
+    <string name="content_description_bold">插入加粗文本模板</string>
+    <string name="title_italic">斜体</string>
+    <string name="content_description_italic">插入斜体模板</string>
+    <string name="title_strikethrough">删除线</string>
+    <string name="content_description_strikethrough">插入删除线模板</string>
+    <string name="title_quote">引用</string>
+    <string name="content_description_quote">插入引用模板</string>
+    <string name="title_list">列表</string>
+    <string name="content_description_list">插入列表模板</string>
+    <string name="title_num_list">列表（编号）</string>
+    <string name="content_description_num_list">插入编号列表模板</string>
+    <string name="title_tag">标签</string>
+    <string name="content_description_tag">插入标签</string>
+    <!--动态操作-->
+    <string name="no_text_alert">未包含任何文本。</string>
+    <string name="share_to_title">分享便签至…</string>
+    <string name="share_title">来自Notie的分享便签</string>
+    <string name="dialog_title">便签信息</string>
+    <string name="dialog_content">内容长度：%d\n单词数量：%d\n行数：%d</string>
+    <string name="dialog_accept">接受</string>
+
+    <!--设置视图-->
+    <string name="settings_bar_name">@string/settings_title</string>
+    <!--编辑器-->
+    <string name="category_title_editor">编辑器</string>
+    <string name="title_line_height">行高</string>
+    <string name="content_description_line_height">每行文本的高度（0~20）</string>
+    <!--markdown-->
+    <string name="category_title_markdown">Markdown</string>
+    <string name="title_markdown_preview">自动Markdown预览</string>
+    <string name="content_description_markdown_preview">自动启用Markdown预览模式</string>
+    <string name="title_markdown_highlight">Markdown高亮</string>
+    <string name="content_description_markdown_highlight">启用编辑时的Markdown文本高亮</string>
+    <!--地区-->
+    <string name="category_title_locale">地区</string>
+    <string name="title_language">语言</string>
+    <string name="language_follow_system">跟随系统</string>
+    <!--其他-->
+    <string name="category_title_others">其他</string>
+
+    <!--关于视图-->
+    <string name="about_bar_name">@string/about_title</string>
+    <string name="description_app_icon">应用图标</string>
+    <string name="version_format">版本 %s</string>
+    <!--操作-->
+    <string name="about_app">关于应用</string>
+    <string name="github_button_text">Github</string>
+    <string name="email_button_text">电子邮件</string>
+    <string name="about_donate">捐赠作者</string>
+    <string name="alipay_button_text">支付宝</string>
+    <string name="wechat_button_text">微信</string>
+    <string name="about_contributors">贡献者</string>
+    <string name="author_cworld_button_text">CWorld</string>
+    <string name="content_description_delete">删除</string>
+    <string name="content_description_preview">使用Markdown预览</string>
+
+    <!--其他-->
+</resources>
