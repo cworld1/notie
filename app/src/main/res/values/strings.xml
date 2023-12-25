@@ -6,12 +6,13 @@
 
     <!--main view-->
     <string name="app_bar_name">@string/app_name</string>
+    <string name="fab_create_desc">Create Notes</string>
     <!--top app bar-->
     <string name="title_select">Select</string>
     <string name="content_description_select">Select notes</string>
     <string name="title_sort">Sort</string>
     <string name="content_description_sort">Sort Item</string>
-    <string name="fab_create_desc">Create Notes</string>
+    <string name="content_description_menu">Menu</string>
     <!--navigation drawer-->
     <string name="header_title">@string/app_name</string>
     <string name="header_text">Made with Love</string>

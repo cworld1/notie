@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:menu="@menu/top_main_bar"
+                app:navigationContentDescription="@string/content_description_menu"
                 app:navigationIcon="@drawable/outline_menu_24"
                 app:title="@string/app_bar_name" />
             <!--        app:layout_scrollFlags="scroll|enterAlways|snap"-->
