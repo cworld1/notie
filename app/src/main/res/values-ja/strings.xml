@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notie</string>
+    <string name="test">建設中です…</string>
+    <string name="test_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="repo_url">http://github.com/cworld1/notie</string>
+
+    <!--main view-->
+    <string name="app_bar_name">@string/app_name</string>
+    <string name="fab_create_desc">ノートを作成</string>
+    <!--top app bar-->
+    <string name="title_select">選択</string>
+    <string name="content_description_select">ノートを選択</string>
+    <string name="title_sort">並べ替え</string>
+    <string name="content_description_sort">アイテムを並べ替える</string>
+    <string name="content_description_menu">メニュー</string>
+    <!--navigation drawer-->
+    <string name="header_title">@string/app_name</string>
+    <string name="header_text">愛を込めて作成されました</string>
+    <string name="folder_subheader_title">フォルダ</string>
+    <string name="all_notes_title">すべてのノート</string>
+    <string name="deleted_title">削除済み</string>
+    <string name="app_subheader_title">アプリケーション</string>
+    <string name="website_title">リポジトリのウェブサイト</string>
+    <string name="update_title">アップデートを確認</string>
+    <string name="settings_title">設定</string>
+    <string name="about_title">アプリについて</string>
+    <!--dynamic action-->
+    <string name="fetch_poem_alert">詩の取得に失敗しました</string>
+
+    <!--edit view-->
+    <string name="edit_bar_name">新しい下書き</string>
+    <!--top edit bar-->
+    <string name="title_preview">プレビュー</string>
+    <string name="title_done">完了</string>
+    <string name="title_share">共有</string>
+    <string name="title_find">ノート内を検索</string>
+    <string name="title_delete">削除</string>
+    <string name="title_info">ノート情報</string>
+    <!--note detail view-->
+    <string name="text_hint_header">タイトル</string>
+    <string name="text_hint_body">本文</string>
+    <!--bottom bar-->
+    <string name="title_command">コマンド</string>
+    <string name="content_description_command">コマンドパレット</string>
+    <string name="title_bold">太字</string>
+    <string name="content_description_bold">太字のテキストテンプレートを挿入</string>
+    <string name="title_italic">斜体</string>
+    <string name="content_description_italic">斜体のテンプレートを挿入</string>
+    <string name="title_strikethrough">取り消し線</string>
+    <string name="content_description_strikethrough">取り消し線のテンプレートを挿入</string>
+    <string name="title_quote">引用</string>
+    <string name="content_description_quote">引用のテンプレートを挿入</string>
+    <string name="title_list">リスト</string>
+    <string name="content_description_list">リストのテンプレートを挿入</string>
+    <string name="title_num_list">リスト（番号）</string>
+    <string name="content_description_num_list">番号付きリストのテンプレートを挿入</string>
+    <string name="title_tag">タグ</string>
+    <string name="content_description_tag">タグを挿入</string>
+    <!--dynamic action-->
+    <string name="no_text_alert">テキストが含まれていません。</string>
+    <string name="share_to_title">ノートを共有...</string>
+    <string name="share_title">Notieから共有されたノート</string>
+    <string name="dialog_title">ノート情報</string>
+    <string name="dialog_content">コンテンツの長さ: %d\n単語の数: %d\nコンテンツの行数: %d</string>
+    <string name="dialog_accept">承諾する</string>
+
+    <!--settings view-->
+    <string name="settings_bar_name">@string/settings_title</string>
+    <!--editor-->
+    <string name="category_title_editor">エディター</string>
+    <string name="title_line_height">行の高さ</string>
+    <string name="content_description_line_height">テキストの各行の高さ（0〜20）</string>
+    <!--markdown-->
+    <string name="category_title_markdown">マークダウン</string>
+    <string name="title_markdown_preview">自動マークダウンプレビュー</string>
+    <string name="content_description_markdown_preview">自動的にマークダウンプレビューモードを有効にする</string>
+    <string name="title_markdown_highlight">マークダウンのハイライト</string>
+    <string name="content_description_markdown_highlight">編集時にマークダウンのテキストハイライトを有効にする</string>
+    <!--locale-->
+    <string name="category_title_locale">ロケール</string>
+    <string name="title_language">言語</string>
+    <string name="language_follow_system">システムに従う</string>
+    <!--others-->
+    <string name="category_title_others">その他</string>
+
+    <!--about view-->
+    <string name="about_bar_name">@string/about_title</string>
+    <string name="description_app_icon">アプリアイコン</string>
+    <string name="version_format">バージョン %s</string>
+    <!--actions-->
+    <string name="about_app">アプリについて</string>
+    <string name="github_button_text">GitHub</string>
+    <string name="email_button_text">メール</string>
+    <string name="about_donate">作者に寄付する</string>
+    <string name="alipay_button_text">Alipay</string>
+    <string name="wechat_button_text">WeChat</string>
+    <string name="about_contributors">貢献者</string>
+    <string name="author_cworld_button_text">CWorld</string>
+    <string name="content_description_delete">削除</string>
+    <string name="content_description_preview">マークダウンでプレビュー</string>
+
+    <!--others-->
+</resources>
