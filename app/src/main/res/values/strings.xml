@@ -66,6 +66,18 @@
 
     <!--settings view-->
     <string name="settings_bar_name">@string/settings_title</string>
+    <!--editor-->
+    <string name="category_title_editor">Editor</string>
+    <string name="title_line_height">Line Height</string>
+    <string name="content_description_line_height">Height of each line of text (0~20)</string>
+    <!--markdown-->
+    <string name="category_title_markdown">Markdown</string>
+    <string name="title_markdown_preview">Auto Markdown Preview</string>
+    <string name="content_description_markdown_preview">Auto enable Markdown preview mode</string>
+    <string name="title_markdown_highlight">Markdown Highlight</string>
+    <string name="content_description_markdown_highlight">Enable Markdown text highlight on edit</string>
+    <!--others-->
+    <string name="category_title_others">Others</string>
 
     <!--about view-->
     <string name="about_bar_name">@string/about_title</string>
@@ -82,9 +94,6 @@
     <string name="author_cworld_button_text">CWorld</string>
     <string name="content_description_delete">Delete</string>
     <string name="content_description_preview">Preview with Markdown</string>
-    <string name="category_title_editor">Editor</string>
-    <string name="category_title_markdown">Markdown</string>
-    <string name="category_title_others">Others</string>
 
     <!--others-->
 </resources>

@@ -12,8 +12,8 @@
             app:min="0"
             app:seekBarIncrement="1"
             app:showSeekBarValue="true"
-            app:summary="Height of each line of text (0~10)"
-            app:title="Line Height" />
+            app:summary="@string/content_description_line_height"
+            app:title="@string/title_line_height" />
 
     </PreferenceCategory>
 
@@ -22,15 +22,15 @@
         <SwitchPreferenceCompat
             app:icon="@drawable/outline_preview_24"
             app:key="markdown_preview"
-            app:summary="Auto enable Markdown preview mode"
-            app:title="Auto Markdown Preview" />
+            app:summary="@string/content_description_markdown_preview"
+            app:title="@string/title_markdown_preview" />
 
         <SwitchPreferenceCompat
             app:defaultValue="true"
             app:icon="@drawable/outline_ink_highlighter_move_24"
             app:key="markdown_highlight"
-            app:summary="Enable Markdown text highlight on edit"
-            app:title="Markdown Highlight" />
+            app:summary="@string/content_description_markdown_highlight"
+            app:title="@string/title_markdown_highlight" />
 
     </PreferenceCategory>
 
@@ -38,13 +38,13 @@
     <PreferenceCategory app:title="@string/category_title_others">
 
         <Preference
-            app:key="repo"
             app:icon="@drawable/outline_web_24"
+            app:key="repo"
             app:title="@string/website_title" />
 
         <Preference
-            app:key="about"
             app:icon="@drawable/outline_info_24"
+            app:key="about"
             app:title="@string/about_title" />
 
     </PreferenceCategory>
