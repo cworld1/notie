@@ -72,6 +72,12 @@ Follow the [Google Java Style Guide](https://google.github.io/styleguide/javagui
   8.  `app:` attributes
   9.  `tool:` attributes
 
+## Thanks
+
+- [Android Developer Document](https://developer.android.com/)
+- [Google Fonts Icons](https://fonts.google.com/icons)
+- [Material Design](https://m3.material.io/)
+
 ## License
 
 This project is licensed under the GPL 3.0 License.
