@@ -77,6 +77,7 @@ Follow the [Google Java Style Guide](https://google.github.io/styleguide/javagui
 - [Android Developer Document](https://developer.android.com/)
 - [Google Fonts Icons](https://fonts.google.com/icons)
 - [Material Design](https://m3.material.io/)
+- [Markwon](https://github.com/noties/Markwon)
 
 ## License
 
