@@ -18,6 +18,12 @@ Android note App complies with Material You specifications, developed using Java
 
 ![Edit wide dark screen](src/edit-wide-dark.png)
 
+## Download
+
+See the releases.
+
+[![Download](https://user-images.githubusercontent.com/74561130/137598555-649c77c7-1719-4aa3-8017-8b41283de730.png)](./releases/latest)
+
 ## Local Development
 
 Environment requirements:
