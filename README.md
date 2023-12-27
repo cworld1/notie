@@ -22,7 +22,7 @@ Android note App complies with Material You specifications, developed using Java
 
 See the releases.
 
-[![Download](https://user-images.githubusercontent.com/74561130/137598555-649c77c7-1719-4aa3-8017-8b41283de730.png)](./releases/latest)
+[![Download](https://user-images.githubusercontent.com/74561130/137598555-649c77c7-1719-4aa3-8017-8b41283de730.png)](https://github.com/cworld1/notie/releases/latest)
 
 ## Local Development
 
